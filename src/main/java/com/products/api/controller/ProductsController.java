@@ -3,7 +3,6 @@ package com.products.api.controller;
 import java.util.ArrayList;
 
 import com.products.api.models.Product;
-import com.products.api.repository.ProductsRepository;
 import com.products.api.service.ProductsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
