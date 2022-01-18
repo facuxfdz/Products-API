@@ -1,0 +1,39 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'war'
+	id 'application'
+}
+
+group = 'com.products'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-log4j2
+implementation group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: '2.6.2'
+
+}
+
+application {
+	mainClass = "com.products.api.ApiApplication"
+}
+
+configurations{
+	all {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
