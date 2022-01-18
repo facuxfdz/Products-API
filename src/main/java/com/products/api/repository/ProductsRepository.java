@@ -25,9 +25,23 @@ public class ProductsRepository {
     }
 
     public Product add(Product product){
+        // Generate server id
+        product.setId(Product.getBaseId());
+        Product.setBaseId(Product.getBaseId() + 1);
+
         Products products = (Products) applicationContext.getBean("getProductsBean");
         products.add(product);
-        logger.info("Product added to list in memory");
+        logger.info("Product added to list in memory with id: " + product.getId());
         return product;
+    }
+
+    public Product findById(Integer id){
+        Products products = (Products) applicationContext.getBean("getProductsBean");
+        for(Product p : products){
+            if(p.getId() == id){
+                return p;
+            }
+        }
+        return null;
     }
 }
