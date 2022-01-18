@@ -21,21 +21,20 @@ public class ProductsController {
     @Autowired
     ProductsService productsService;
     
-    @Autowired
-    ProductsRepository productsRepository;
+
 
     @GetMapping
     public ArrayList<Product> getProducts(){
-        return productsRepository.find();
+        return productsService.getProductList();
     }
 
     @PostMapping
     public Product addProduct(@RequestBody Product product){
-        return productsRepository.add(product);
+        return productsService.addProduct(product);
     }
 
     @GetMapping(path = "/{id}")
     public Product getProductById(@PathVariable Integer id){
-        return productsRepository.findById(id);
+        return productsService.getById(id);
     }
 }
