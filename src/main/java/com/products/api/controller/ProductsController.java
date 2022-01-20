@@ -7,6 +7,7 @@ import com.products.api.models.Product;
 import com.products.api.service.ProductsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,5 +36,15 @@ public class ProductsController {
     @GetMapping(path = "/{id}")
     public Optional<Product> getProductById(@PathVariable Integer id){
         return productsService.getById(id);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public String deleteProduct(@PathVariable Integer id){
+        boolean queryOk = productsService.deleteProductById(id);
+        if(queryOk){
+            return "Product with id '" + id + "' successfully deleted";
+        }
+
+        return "Something went wrong";
     }
 }

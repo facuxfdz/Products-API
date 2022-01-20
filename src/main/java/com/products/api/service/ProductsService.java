@@ -26,4 +26,14 @@ public class ProductsService {
     public Optional<Product> getById(Integer id){
         return productsRepository.findById(id);
     }
+
+    public boolean deleteProductById(Integer id){
+        try {
+            productsRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }   
+
