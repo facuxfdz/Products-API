@@ -1,6 +1,7 @@
 package com.products.api.controller;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import com.products.api.models.Product;
 import com.products.api.service.ProductsService;
@@ -21,7 +22,6 @@ public class ProductsController {
     ProductsService productsService;
     
 
-
     @GetMapping
     public ArrayList<Product> getProducts(){
         return productsService.getProductList();
@@ -33,7 +33,7 @@ public class ProductsController {
     }
 
     @GetMapping(path = "/{id}")
-    public Product getProductById(@PathVariable Integer id){
+    public Optional<Product> getProductById(@PathVariable Integer id){
         return productsService.getById(id);
     }
 }

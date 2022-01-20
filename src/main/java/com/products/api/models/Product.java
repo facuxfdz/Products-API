@@ -1,8 +1,15 @@
 package com.products.api.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Product {
 
-    private static Integer baseId = 0;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String title;
     private Double price;
@@ -11,14 +18,6 @@ public class Product {
     
     public String getTitle() {
         return title;
-    }
-
-    public static Integer getBaseId() {
-        return baseId;
-    }
-
-    public static void setBaseId(Integer baseId) {
-        Product.baseId = baseId;
     }
 
     public Integer getId() {
