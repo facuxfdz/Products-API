@@ -1,7 +1,6 @@
 package com.products.api.controller;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import com.products.api.models.Product;
 import com.products.api.service.ProductsService;
