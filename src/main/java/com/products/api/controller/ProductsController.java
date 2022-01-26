@@ -34,17 +34,12 @@ public class ProductsController {
     }
 
     @GetMapping(path = "/{id}")
-    public Optional<Product> getProductById(@PathVariable Integer id){
+    public Product getProductById(@PathVariable String id){
         return productsService.getById(id);
     }
 
     @DeleteMapping(path = "/{id}")
-    public String deleteProduct(@PathVariable Integer id){
-        boolean queryOk = productsService.deleteProductById(id);
-        if(queryOk){
-            return "Product with id '" + id + "' successfully deleted";
-        }
-
-        return "Something went wrong";
+    public Product deleteProduct(@PathVariable String id){
+        return productsService.deleteProductById(id);
     }
 }
