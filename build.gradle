@@ -4,6 +4,7 @@ plugins {
 	id 'java'
 	id 'war'
 	id 'application'
+	id "io.freefair.lombok" version "6.3.0"
 }
 
 group = 'com.products'
