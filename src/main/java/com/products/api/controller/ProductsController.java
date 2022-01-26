@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.products.api.models.Product;
 import com.products.api.service.ProductsService;
 
-import org.bson.BsonValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
