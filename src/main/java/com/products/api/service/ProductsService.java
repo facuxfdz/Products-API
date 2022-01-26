@@ -58,5 +58,39 @@ public class ProductsService {
         log.info(msg);
         return msg;
     }
+
+    public String updateProductPrice(String id, Double price){
+        Query query = new Query(Criteria.where("id").is(id));
+        Update update = new Update();
+        update.set("price", price);
+
+        UpdateResult result = mongoTemplate.updateFirst(query, update, Product.class);
+
+        if(result == null || result.getModifiedCount() == 0){
+            String warnMsg = "No products were updated! :o";
+            log.warn(warnMsg);
+            return warnMsg;
+        }
+        String msg = result.getModifiedCount() + " product(s) updated!";
+        log.info(msg);
+        return msg;
+    }
+
+    public String updateProductThumbnail(String id, String thumbnail){
+        Query query = new Query(Criteria.where("id").is(id));
+        Update update = new Update();
+        update.set("thumbnail", thumbnail);
+
+        UpdateResult result = mongoTemplate.updateFirst(query, update, Product.class);
+
+        if(result == null || result.getModifiedCount() == 0){
+            String warnMsg = "No products were updated! :o";
+            log.warn(warnMsg);
+            return warnMsg;
+        }
+        String msg = result.getModifiedCount() + " product(s) updated!";
+        log.info(msg);
+        return msg;
+    }
 }   
 
